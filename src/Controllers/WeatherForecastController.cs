@@ -23,17 +23,17 @@ public class WeatherForecastController : ControllerBase
 
     [HttpGet(Name = "GetWeatherForecast")]
     [SwaggerOperation(summary: "Get Weather Data", description: "Weather related data description")]
-    [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(IEnumerable<WeatherForecast>))]
+    [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(IEnumerable<NewWeatherForecast>))]
     [SwaggerResponse(StatusCodes.Status400BadRequest)]
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]
     [SwaggerResponse(StatusCodes.Status503ServiceUnavailable)]
-    public IEnumerable<WeatherForecast> Get()
+    public IEnumerable<NewWeatherForecast> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        return Enumerable.Range(1, 5).Select(index => new NewWeatherForecast
             {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                NewDate = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                NewSummary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
     }
