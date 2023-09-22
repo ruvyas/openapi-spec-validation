@@ -13,6 +13,6 @@
     </ItemGroup>
     <Target Name="PostBuild" AfterTargets="PostBuildEvent">
         <Exec Command="dotnet tool restore" />
-        <Exec Command="dotnet swagger tofile --yaml --output ..\revision-spec.yaml $(OutputPath)$(AssemblyName).dll v1 " />
+        <Exec Command="dotnet swagger tofile --yaml --output ../revision-spec.yaml $(OutputPath)$(AssemblyName).dll v1 " />
     </Target>
 </Project>
