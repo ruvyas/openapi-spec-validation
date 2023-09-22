@@ -40,7 +40,7 @@ jobs:
       id: test_ete
       uses: oasdiff/oasdiff-action/diff@main
       with:
-        base: 'src/base-spec.yaml'
-        revision: 'src/revision-spec.yaml'
+        base: 'base-spec.yaml'
+        revision: 'revision-spec.yaml'
         format: 'text'
         fail-on-diff: false
