@@ -35,3 +35,12 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
       working-directory: src/
+
+    - name: Running OpenAPI Spec diff action
+      id: test_ete
+      uses: oasdiff/oasdiff-action/diff@main
+      with:
+        base: 'src/base-spec.yaml'
+        revision: 'src/revision-spec.yaml'
+        format: 'text'
+        fail-on-diff: false
