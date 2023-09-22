@@ -21,13 +21,13 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet(Name = "GetWeatherData")]
     [SwaggerOperation(summary: "Get Weather Data", description: "Weather related data description")]
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(IEnumerable<NewWeatherForecast>))]
     [SwaggerResponse(StatusCodes.Status400BadRequest)]
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]
     [SwaggerResponse(StatusCodes.Status503ServiceUnavailable)]
-    public IEnumerable<NewWeatherForecast> Get()
+    public IEnumerable<NewWeatherForecast> GetWeather()
     {
         return Enumerable.Range(1, 5).Select(index => new NewWeatherForecast
             {
