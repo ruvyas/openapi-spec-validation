@@ -21,13 +21,13 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherData")]
+    [HttpGet(Name = "GetWeatherForecast")]
     [SwaggerOperation(summary: "Get Weather Data", description: "Weather related data description")]
     [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(IEnumerable<NewWeatherForecast>))]
     [SwaggerResponse(StatusCodes.Status400BadRequest)]
     [SwaggerResponse(StatusCodes.Status500InternalServerError)]
     [SwaggerResponse(StatusCodes.Status503ServiceUnavailable)]
-    public IEnumerable<NewWeatherForecast> GetWeather()
+    public IEnumerable<NewWeatherForecast> Get()
     {
         return Enumerable.Range(1, 5).Select(index => new NewWeatherForecast
             {
@@ -36,5 +36,22 @@ public class WeatherForecastController : ControllerBase
                 NewSummary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+    }
+
+    [HttpGet]
+    [Route("{id:int}")]
+    [SwaggerOperation(summary: "Get Weather Data by Id", description: "Weather related data description")]
+    [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(NewWeatherForecast))]
+    [SwaggerResponse(StatusCodes.Status400BadRequest)]
+    [SwaggerResponse(StatusCodes.Status500InternalServerError)]
+    [SwaggerResponse(StatusCodes.Status503ServiceUnavailable)]
+    public NewWeatherForecast GetById(int id)
+    {
+        return new()
+        {
+            NewDate = DateOnly.FromDateTime(DateTime.Now.AddDays(id)),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            NewSummary = Summaries[Random.Shared.Next(Summaries.Length)]
+        };
     }
 }

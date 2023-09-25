@@ -1,0 +1,6 @@
+extends: [[spectral:oas, off]]
+rules:
+  operation-operationId-unique: true
+  path-declarations-must-exist: true
+  path-params: true
+  path-keys-no-trailing-slash: true
