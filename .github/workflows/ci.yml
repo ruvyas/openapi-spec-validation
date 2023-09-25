@@ -44,3 +44,8 @@ jobs:
         revision: 'revision-spec.yaml'
         format: 'text'
         fail-on-diff: false
+
+    - name: Run Spectral
+      uses: stoplightio/spectral-action@latest
+      with:
+        file_glob: '*.yaml'
