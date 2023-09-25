@@ -25,7 +25,7 @@ paths:
           description: Server Error
         '503':
           description: Server Error
-  '/WeatherForecast/{id}':
+  '/WeatherForecast/{id}/':
     get:
       tags:
         - WeatherForecast
