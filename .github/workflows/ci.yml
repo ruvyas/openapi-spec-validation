@@ -55,4 +55,4 @@ jobs:
       uses: stoplightio/spectral-action@latest
       with:
         file_glob: './base-spec.yaml'
-        spectral_ruleset: rules.spectral.yaml
+        spectral_ruleset: './rules.spectral.yaml'
