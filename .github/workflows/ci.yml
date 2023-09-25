@@ -54,5 +54,5 @@ jobs:
     - name: Run Spectral
       uses: stoplightio/spectral-action@latest
       with:
-        file_glob: './base-spec.yaml'
-        spectral_ruleset: './rules.spectral.yaml'
+        file_glob: '../base-spec.yaml'
+        spectral_ruleset: '../rules.spectral.yaml'
