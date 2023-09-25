@@ -48,5 +48,5 @@ jobs:
     - name: 'Run Spectral - CLI'
       run: |
         npm install -g @stoplight/spectral-cli
-        spectral lint ./base.yaml --ruleset rules.spectral.yaml
+        spectral lint ./base-spec.yaml --ruleset ./rules.spectral.yaml
       shell: bash
