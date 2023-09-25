@@ -45,6 +45,12 @@ jobs:
         format: 'text'
         fail-on-diff: false
 
+    - name: 'Run Spectral - CLI'
+      run: |
+        npm install -g @stoplight/spectral
+        spectral lint ./base.yaml
+      shell: bash
+
     - name: Run Spectral
       uses: stoplightio/spectral-action@latest
       with:
